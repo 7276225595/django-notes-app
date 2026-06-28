@@ -24,20 +24,14 @@ pipeline{
             }
         }
         stage("Deploy"){
-            steps {
-                echo "Deploying application"
-                
-                sh '''
-                    # Stop and remove existing container if it exists
-                    docker stop notes-app-container || true
-                    docker rm notes-app-container || true
-                    
-                    # Run the container with the correct image name
-                    docker run -d \
-                      --name notes-app-container \
-                      -p 8000:8000 \
-                      vaibhavlokhande1798/notes-app:latest
-                '''
+            steps{
+                // Using the new deploy function
+                deploy(
+                    imageName: "vaibhavlokhande1798/notes-app:latest",
+                    containerName: "notes-app-container",
+                    hostPort: "8000",
+                    containerPort: "8000"
+                )
             }
         }
     }
