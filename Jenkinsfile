@@ -13,7 +13,7 @@ pipeline{
             steps{
             dockerbuild("notes-app","latest")
             }
-        }
+        }  
         stage("Push to DockerHub"){
             steps{
                 dockerpush("dockerHubCreds","notes-app","latest")
