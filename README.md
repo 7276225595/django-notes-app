@@ -1,4 +1,4 @@
-Webhook Test for jenkins
+Webhook Test for jenkins pipeline
 
 # Simple Notes App for TWS Community
 This is a simple notes app built with React and Django.
